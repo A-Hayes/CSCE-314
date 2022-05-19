@@ -1,0 +1,27 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+16 Oct 2020
+Lab 7, Q2: Given a parse table, determine if given input is valid
+
+
+Step  | Stack          | Input                | Action
+1     | E $            | num * num ~ num $    | pop(); push(T E');
+2     | T E' $         | num * num ~ num $    | pop(); push(F T');
+3     | F T' E' $      | num * num ~ num $    | pop(); push(num);
+4     | num T' E' $    | num * num ~ num $    | pop(); next++;
+5     | T' E' $        | * num ~ num $        | pop(); push(* T);
+6     | * T E' $       | * num ~ num $        | pop(); next++;
+7     | T E' $         | num ~ num $          | pop(); push(F T');
+8     | F T' E' $      | num ~ num $          | pop(); push(num);
+9     | num T' E' $    | num ~ num $          | pop(); next++;
+10    | T' E' $        | ~ num $              | pop(); push(NULL);
+11    | E' $           | ~ num $              | pop(); push(~ E);
+12    | ~ E $          | ~ num $              | pop(); next++;
+13    | E $            | num $                | pop(); push(T E');
+14    | T E' $         | num $                | pop(); push(F T');
+15    | F T' E' $      | num $                | pop(); push(num);
+16    | num T' E' $    | num $                | pop(); next++;
+17    | T' E' $        | $                    | pop(); push(NULL);
+18    | E' $           | $                    | pop(); push(NULL);
+19    | $              | $                    | pop(); next++;
+END

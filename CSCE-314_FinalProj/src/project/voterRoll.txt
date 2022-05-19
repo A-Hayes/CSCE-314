@@ -1,0 +1,8 @@
+40322860,Macy Drew,10437 Bermuda View Dr. San Antonio TX,R
+12345678,Jack Mason,112 Westwood Dr. Coppell TX,R
+43675890,Joe Biden,123 Crazytown St. Scranton OH,D
+11223344,Nancy Pelosi, 444 Unlucky Cr. Washington D.C.,D
+36784523,Mark Cogburn,34555 Wisdom Dr. Atascosa TX,R
+80983477,Mollie Reese,9027 Garrett St. Sheffield TX,R
+87481838,John Smith III,892 Smithy Rd. Jamestown VA,I
+28748264,Lily James,282 Rock Prairie Dr. Jacksonville FL,R

@@ -1,0 +1,44 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+2 October 2020
+
+Lab 6, Q5: Revise grammar to add unary operators
+
+<id> -> A | B | C
+<expr> -> <expr> + <term> | <expr> - <term> | <expr> + <expr> | <expr> - <expr> 
+  | <term>
+<term> -> <term> * <factor> | <factor> 
+<factor> -> (<expr>) | <id> | epsilon
+
+Note: <expr>, <term>, and <factor> all are able to point directly to the <id> 
+      options. These steps are skipped for simplicity. All behaviors (new unary 
+      and original) are retained and displayed besides *.
+
+A+(B++)-(C--)
+  <expr>
+  < <expr> + <expr> >
+  < A + <expr> >
+  < A + < <expr> - <expr> > >
+  < A + < < (<expr>) > - <expr> > >
+  < A + < < (< <expr> + <expr> >) > - <expr> > >
+  < A + < < (< B + <expr> >) > - <expr> > >
+  < A + < < (< B + < <expr> + <expr> > >) > - <expr> > >
+  < A + < < (< B + < epsilon + <expr> > >) > - <expr> > >
+  < A + < < (< B + < epsilon + epsilon > >) > - <expr> > >
+  < A + < < (< B + < epsilon + epsilon > >) > - < (<expr>) > > >
+  < A + < < (< B + < epsilon + epsilon > >) > - < (< <expr> - <expr> >)> > >
+  < A + < < (< B + < epsilon + epsilon > >) > - < (< C - <expr> >)> > >
+  < A + < < (< B + < epsilon + epsilon > >) > - < (< C - < <expr> - <expr> > >)> > >
+  < A + < < (< B + < epsilon + epsilon > >) > - < (< C - < epsilon - <expr> > >)> > >
+  < A + < < (< B + < epsilon + epsilon > >) > - < (< C - < epsilon - epsilon > >)> > >
+  A + ( B + epsilon + epsilon ) - ( C - epsilon - epsilon )
+  A + (B++) - (C--)
+  
+  
+  
+  
+  
+  
+  
+  
+

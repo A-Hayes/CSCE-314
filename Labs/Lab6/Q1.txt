@@ -1,0 +1,24 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+2 October 2020
+
+Lab 6, Q1: Describe Given Grammar
+
+This grammar defines a language where the result is a string containing N "a"s followed by N "b"s (no spaces, N>=0). This assumes that a null/epsilon input is present. (ie No "ab"). To summarize, the space between any individual pair of "ab" can be filled with an arbitrary amount of of other "ab" pairs nested within eachother. 
+
+Examples: 
+N = 3: aaabbb
+  < a <A> b >
+  < a < a <A> b > b >
+  < a < a <ab> b > b >
+  aaabbb
+  
+N = 6: aaaaaabbbbbb
+  <A>
+  < a <A> b >
+  < a < a <A> b > b >
+  < a < a < a <A> b > b > b >
+  < a < a < a < a <A> b > b > b > b >
+  < a < a < a < a < a <A> b > b > b > b > b >
+  < a < a < a < a < a <ab> b > b > b > b > b >
+  aaaaaabbbbbb

@@ -1,0 +1,28 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+16 Oct 2020
+Lab 7, Q4: Use left factoring on grammar for predictive parsing
+
+Given:
+	stmt -> ifstmt
+		  | other
+
+	ifstmt -> if (expr) stmt
+			| if (expr) stmt else stmt
+
+	expr -> T | F
+
+
+
+Answer:
+	stmt -> ifstmt
+
+	ifstmt -> X Y 
+
+	X -> if (expr) stmt
+
+	Y -> else stmt
+		| epsilon
+
+	expr -> T
+		  |  F

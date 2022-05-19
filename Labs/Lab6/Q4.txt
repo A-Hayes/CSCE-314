@@ -1,0 +1,26 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+2 October 2020
+
+Lab 6, Q4: Create grammar to generate given strings
+
+<S> -> <A>
+<A> -> a | b | c | d | epsilon | <A><A>
+
+String 1: abcd
+  <S>
+  <A><A>
+  < a <<A><A>> >
+  < a < b <<A><A>> > >
+  < a < b < c <A>> > >
+  < a < b < c d > > >
+  abcd
+  
+String 2: accc
+  <S>
+  <A><A>
+  < a <<A><A>> >
+  < a < c <<A><A>> > >
+  < a < c < c <A>> > >
+  < a < c < c c > > >
+  accc

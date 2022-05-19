@@ -1,0 +1,30 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+2 October 2020
+
+Lab 6, Q3: Show derivations from given Equation
+
+Assumes <S> and <A> have valid values of epsilon
+
+Leftmost:
+    <S>
+->  a <A> <S>
+->  a <S b A> <S>
+->  a <S> b <A> <S>
+->  a a b <A> <S>
+->  a a b b a <S>
+->  
+->  a a b b a a
+  
+Rightmost:
+    <S>
+->  a <A> <S>
+->  a <A> a
+->  a <S> b <A> a
+->  a <S> b b a a
+->  
+->  a a b b a a
+
+
+  
+  

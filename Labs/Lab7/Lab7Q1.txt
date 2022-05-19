@@ -1,0 +1,37 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+16 Oct 2020
+Lab 7, Q1: Given a parse table, determeine if given input is valid
+
+
+Step | Stack          | Input                | Action
+1    | P $            | a := b * c + d ; $   | pop(); push(U);
+2    | U $            | a := b * c + d ; $   | pop(); push(S U');
+3    | S U' $         | a := b * c + d ; $   | pop(); push(A;);
+4    | A; U' $        | a := b * c + d ; $   | pop(); push(id := E);
+5    | id := E; U' $  | a := b * c + d ; $   | pop(); push(a);
+6    | a := E; U' $   | a := b * c + d ; $   | pop(); next++;
+7    | := E; U' $     | := b * c + d ; $     | pop(); next++;
+8    | E; U' $        | b * c + d ; $        | pop(); push(T E');
+9    | T E'; U' $     | b * c + d ; $        | pop(); push(F T');
+10   | F T' E'; U' $  | b * c + d ; $        | pop(); push(id);
+11   | id T' E'; U' $ | b * c + d ; $        | pop(); push(b);
+12   | b T' E'; U' $  | b * c + d ; $        | pop(); next++;
+13   | T' E'; U' $    | * c + d ; $          | pop(); push(* F T');
+14   | * F T' E'; U' $| * c + d ; $          | pop(); next++;
+15   | F T' E'; U' $  | c + d ; $            | pop(); push(id);
+16   | id T' E'; U' $ | c + d ; $            | pop(); push(c);
+17   | c T' E'; U' $  | c + d ; $            | pop(); next++;
+18   | T' E'; U' $    | + d ; $              | pop(); push(NULL);
+19   | E'; U' $       | + d ; $              | pop(); push(+ T E');
+20   | + T E'; U' $   | + d ; $              | pop(); next++;
+21   | T E'; U' $     | d ; $                | pop(); push(F T');
+22   | F T' E'; U' $  | d ; $                | pop(); push(id);
+23   | id T' E'; U' $ | d ; $                | pop(); push(d);
+24   | d T' E'; U' $  | d ; $                | pop(); next++;
+25   | T' E'; U' $    | ; $                  | pop(); push(NULL);
+26   | E'; U' $       | ; $                  | pop(); push(NULL);
+27   | ; U' $         | ; $                  | pop(); next++;
+28   | U' $           | $                    | pop(); push(NULL);
+29   | $           | $                       | pop(); next++;
+end

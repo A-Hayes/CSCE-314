@@ -1,0 +1,21 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+2 October 2020
+
+Lab 6, Q2: Prove ambiguity of given Grammar
+
+Trees attached as SyntaxA.png
+
+Test String 1: cccddd
+  <D> 
+  < c <D> d >
+  < c < c <D> d > d >
+  < c < c < c <D> d > d > d >
+  < c < c < c <NULL> d > d > d >
+  cccddd
+  
+  <C> 
+  < c <C> d >
+  < c < c <C> d > d >
+  < c < c <cd> d > d >
+  cccddd

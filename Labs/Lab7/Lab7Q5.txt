@@ -1,0 +1,27 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+16 Oct 2020
+Lab 7, Q5: Given grammar and input, show process of Shift-Reduce parser
+
+Init. Input: "id = int + id + id"
+
+Step   | Stack                         | Look | Input                | Action 
+1      | NULL                          | id   | = int + id + id $    | Start
+2      | id                            | =    | int + id + id $      | Shift
+3      | id =                          | int  | + id + id $          | Shift
+4      | id = int                      | +    | id + id $            | Reduce, Value -> int
+5      | id = Value                    | +    | id + id $            | Reduce, Product -> Value
+6      | id = Product                  | +    | id + id $            | Reduce, Sum -> Product
+7      | id = Sum                      | +    | id + id $            | Shift
+8      | id = Sum +                    | id   | + id $               | Shift
+9      | id = Sum + id                 | +    | id $                 | Reduce, Value -> id
+10     | id = Sum + Value              | +    | id $                 | Reduce, Product -> Value
+11     | id = Sum + Product            | +    | id $                 | Shift
+12     | id = Sum + Product +          | id   | $                    | Reduce, Sum -> Sum + Product 
+13     | id = Sum +                    | id   | $                    | Shift 
+14     | id = Sum + id                 | $    | NULL                 | Reduce, Value -> id 
+15     | id = Sum + Value              | $    | NULL                 | Reduce, Product -> Value 
+16     | id = Sum + Product            | $    | NULL                 | Shift 
+17     | id = Sum + Product $          | NULL | NULL                 | Reduce, Sum -> Sum + Product
+18     | id = Sum $                    | NULL | NULL                 | Reduce, Assign -> id = Sum
+19     | id = Assign $                 | NULL | NULL                 | ACCEPT

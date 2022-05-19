@@ -1,0 +1,21 @@
+Asa Hayes & Isabel Ramirez
+CSCE-314
+16 Oct 2020
+Lab 7, Q3: Convert grammar from left to right recursive for predictive parsing
+
+Given:
+	E := E + T
+		| T
+
+	T := int
+		| (E)
+
+
+Answer:
+E := T X
+
+X := + T
+	| epsilon
+
+T := int
+	| (E)
